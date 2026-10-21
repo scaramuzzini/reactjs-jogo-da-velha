@@ -16,14 +16,8 @@ const userMorty = {
   imageSize: 300,
 };
 
-function MeuComponente() {
-  const [numCliques, setNumCliques] = useState(0);
+function MeuComponente({numCliques, handleClick}) {
 
-  function handleClick() {
-    setNumCliques(numCliques + 1)
-    console.log('Oi, isto é uma mensagem no console.')
-  }
-  
   return (
     <button onClick={handleClick}>
       Clique aqui! Já clicou {numCliques} vezes
@@ -32,18 +26,19 @@ function MeuComponente() {
 }
 
 function MeuPainel() {
+  const [numCliques, setNumCliques] = useState(0);
+
+  function handleClick() {
+    setNumCliques(numCliques + 1)
+    console.log('Oi, isto é uma mensagem no console.')
+  }
   
   return (
     <>
-      <MeuComponente />
-      <MeuComponente />
-      <MeuComponente />
-      <MeuComponente />
-      <MeuComponente />
-      <MeuComponente />
-      <MeuComponente />
-      <MeuComponente />
-      <MeuComponente />
+      <MeuComponente numCliques={numCliques} handleClick={handleClick} />
+      <MeuComponente numCliques={numCliques} handleClick={handleClick} />
+      <MeuComponente numCliques={numCliques} handleClick={handleClick} />
+      <MeuComponente numCliques={numCliques} handleClick={handleClick} />
     </>
   )
 }
